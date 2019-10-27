@@ -7,12 +7,12 @@ jobs:
       - checkout
       - run: 
           name: HELLO
-          command: echo "A first hello"
+          command: echo "A first hello" && export STH=$(printenv)
   hello2:
     docker:
       - image: circleci/ruby:2.4.1
     steps:
-      - run: echo "hello2"
+      - run: echo "hello2" $STH
      
 workflows:
   version: 2
