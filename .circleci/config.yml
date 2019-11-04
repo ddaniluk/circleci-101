@@ -8,9 +8,9 @@ jobs:
       - run: mkdir ws
       - run: 
           name: HELLO
-          command: echo "A first hello" && export STH=$(printenv) && echo $STH > ./ws/sth
+          command: echo "A first hello" && export STH=$(printenv) && echo $STH > ./sth
       - persist_to_workspace:
-          root: ws
+          root: ./
           paths:
             - sth
   hello2:
@@ -21,7 +21,7 @@ jobs:
           at: ./
       - run: echo "hello2" $STH
       - run: ls -la
-      - run: cat ws/sth
+      - run: cat ./sth
      
 workflows:
   version: 2
